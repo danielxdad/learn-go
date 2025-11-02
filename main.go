@@ -108,24 +108,6 @@ func main() {
 	fmt.Println("=========================================\n")
 	maps()
 
-	// fmt.Println("=========================================\n")
-	// resolver := new(net.Resolver)
-	// ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
-	// defer cancel()
-	// addrs, err := resolver.LookupHost(ctx, "secure.etecsa.cu")
-	// addrs, err := net.LookupHost("secure.etecsa.cu")
-	// if err != nil {
-	// 	dnsError, isDNSError := err.(*net.DNSError)
-	// 	if isDNSError {
-	// 		fmt.Printf("[ERROR]: %T, %v\n", err, err)
-	// 		fmt.Println(dnsError.IsTimeout, dnsError.IsTemporary, dnsError.Server)
-	// 	} else {
-	// 		fmt.Printf("[ERROR]: %T, %v\n", err, err)
-	// 	}
-	// } else {
-	// 	fmt.Println(addrs)
-	// }
-
 	fmt.Println("=========================================\n")
 	func_values()
 

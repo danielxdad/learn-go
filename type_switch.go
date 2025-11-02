@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 type Person struct {
+	// Name string `json:"name" xml:"name" binding:"required"`
 	Name string
 	Age  int
 }
