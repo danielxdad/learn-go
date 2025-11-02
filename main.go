@@ -148,6 +148,9 @@ func main() {
 	var wg sync.WaitGroup
 	wg.Go(panic_and_recover)
 	wg.Wait()
+
+	fmt.Println("=========================================\n")
+	time_module()
 }
 
 func basic_types() {
