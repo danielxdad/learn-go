@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"net"
 )
@@ -12,7 +13,10 @@ func dns_resolv_mod() {
 
 	addrs, err := net.LookupHost("www.google.com")
 	if err != nil {
-		if dnsError, isDNSError := err.(*net.DNSError); isDNSError {
+		var dnsError *net.DNSError
+		// if dnsError, isDNSError := err.(*net.DNSError); isDNSError {
+		// if errors.Is(err, &net.DNSError{}) {
+		if errors.As(err, &dnsError) {
 			fmt.Printf("[ERROR]: %T, %v\n", err, err)
 			fmt.Println(dnsError.IsTimeout, dnsError.IsTemporary, dnsError.Server)
 		} else {
