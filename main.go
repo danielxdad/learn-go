@@ -7,6 +7,7 @@ import (
 	"log"
 	"math"
 	"runtime"
+	"slices"
 	"sync"
 
 	// "rsc.io/quote"
@@ -103,7 +104,7 @@ func main() {
 	arrays()
 
 	fmt.Print("=========================================\n\n")
-	slices()
+	slices_types()
 
 	fmt.Print("=========================================\n\n")
 	maps()
@@ -282,9 +283,9 @@ func arrays() {
 	fmt.Println(arr)
 }
 
-func slices() {
+func slices_types() {
 	// array literal
-	primes := [6]int{2, 3, 5, 7, 11, 13}
+	primes := []int{2, 3, 5, 7, 11, 13}
 	// slice
 	var s []int = primes[1:4]
 	// slice literal
@@ -311,6 +312,13 @@ func slices() {
 	fmt.Println(slice_of_slices)
 
 	b = append(b, true, false)
+
+	for i, v := range primes {
+		fmt.Println(i, v)
+	}
+
+	// Delete items from index 1 up to index 3 (non included)
+	primes = slices.Delete(primes, 1, 3)
 
 	for i, v := range primes {
 		fmt.Println(i, v)
