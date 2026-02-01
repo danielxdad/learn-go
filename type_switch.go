@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Person struct {
 	// Name string `json:"name" xml:"name" binding:"required"`
@@ -16,22 +18,26 @@ func type_switch() {
 	// var x interface{} = "foo bar"
 	// var x interface{} = true
 	// var x interface{} = float32(3.14)
-	var x interface{} = Person{Name: "Foo Bar", Age: 45}
+	// var x interface{} = Person{Name: "Foo Bar", Age: 45}
+	vals := []any{"foo", true, 3.14, 10, Person{Name: "Foo Bar", Age: 45}, 'A'}
 
-	switch v := x.(type) {
-	case int:
-		fmt.Println("int type", v)
-	case string:
-		fmt.Println("string type", v)
-	case bool:
-		fmt.Println("bool type", v)
-	case float32:
-		fmt.Println("float32 type", v)
-	case float64:
-		fmt.Println("float64 type", v)
-	case Person:
-		fmt.Println("Person type", v)
-	default:
-		fmt.Printf("unkow type: %T - %v\n", v, v)
+	for i := 0; i < len(vals); i++ {
+		x := vals[i]
+		switch v := x.(type) {
+		case int:
+			fmt.Println("int:", v)
+		case string:
+			fmt.Println("string:", v)
+		case bool:
+			fmt.Println("bool:", v)
+		case float32:
+			fmt.Println("float32:", v)
+		case float64:
+			fmt.Println("float64:", v)
+		case Person:
+			fmt.Println("Person:", v)
+		default:
+			fmt.Printf("unkown: %T - %v\n", v, v)
+		}
 	}
 }
