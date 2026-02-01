@@ -63,8 +63,6 @@ func main() {
 	fmt.Println(now)
 	fmt.Println(now.Add(d))
 
-	fmt.Printf("asd")
-
 	fmt.Print("=========================================\n\n")
 	fmt.Println(add(3, 7))
 	fmt.Println(split(17))
@@ -137,6 +135,9 @@ func main() {
 
 	fmt.Print("=========================================\n\n")
 	goroutimes()
+
+	fmt.Print("=========================================\n\n")
+	runtime_mod()
 }
 
 func basic_types() {
