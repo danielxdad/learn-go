@@ -7,7 +7,7 @@ import (
 )
 
 func say(s string) {
-	for i := 0; i < 5; i++ {
+	for range 5 {
 		time.Sleep(100 * time.Millisecond)
 		fmt.Println(s)
 	}
@@ -51,7 +51,7 @@ func mergesort(data []int, c chan []int) {
 	} else {
 		n := min(len(left), len(right))
 
-		for i := 0; i < n; i++ {
+		for i := range n {
 			x, y := left[i], right[i]
 			result = append(result, min(x, y), max(x, y))
 		}

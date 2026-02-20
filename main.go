@@ -112,7 +112,7 @@ func main() {
 
 	fmt.Print("=========================================\n\n")
 	fib := fibonacci()
-	for i := 0; i < 10; i++ {
+	for range 10 {
 		fmt.Println(fib())
 	}
 
@@ -172,7 +172,7 @@ func type_conversion() {
 func for_loop() {
 	sum := 1
 
-	for i := 0; i < 10; i++ {
+	for i := range 10 {
 		fmt.Println(i, i*2)
 	}
 
@@ -215,7 +215,7 @@ func split(sum int) (x, y int) {
 func sqrt(x float64) float64 {
 	z := 1.0
 
-	for i := 0; i < 10; i++ {
+	for range 10 {
 		z -= (z*z - x) / (2 * z)
 	}
 
@@ -252,7 +252,7 @@ func defer_stmt_1() {
 	fmt.Println("counting")
 
 	// Deferred function calls are pushed onto a stack. When a function returns, its deferred calls are executed in last-in-first-out order.
-	for i := 0; i < 10; i++ {
+	for i := range 10 {
 		defer fmt.Println(i)
 	}
 

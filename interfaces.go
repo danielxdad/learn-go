@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func interfaces() {
-	var i interface{} = "hello"
+	var i any = "hello"
 
 	// A type assertion provides access to an interface value's underlying concrete value
 	s := i.(string)

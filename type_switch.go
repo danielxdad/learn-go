@@ -21,7 +21,7 @@ func type_switch() {
 	// var x interface{} = Person{Name: "Foo Bar", Age: 45}
 	vals := []any{"foo", true, 3.14, 10, Person{Name: "Foo Bar", Age: 45}, 'A'}
 
-	for i := 0; i < len(vals); i++ {
+	for i := range vals {
 		x := vals[i]
 		switch v := x.(type) {
 		case int:
