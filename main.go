@@ -9,6 +9,7 @@ import (
 	"runtime"
 	"slices"
 	"sync"
+	"unsafe"
 
 	// "rsc.io/quote"
 	"math/cmplx"
@@ -83,7 +84,7 @@ func main() {
 	if_stmt()
 
 	fmt.Print("=========================================\n\n")
-	fmt.Print("sqrt:", sqrt(8.0))
+	fmt.Print("sqrt(2.0): ", sqrt(2.0), "\n")
 
 	fmt.Print("=========================================\n\n")
 	switch_stmt()
@@ -152,13 +153,15 @@ func basic_types() {
 		MaxInt uint64     = 1<<64 - 1
 		Flt    float64    = 3.14
 		z      complex128 = cmplx.Sqrt(-5 + 12i)
+		ptr    uintptr    = 0xFF_FF_FF_FF_FF_FF_FF_FF
 	)
 
-	fmt.Printf("Type: %T Value: %v\n", ToBe, ToBe)
-	fmt.Printf("Type: %T Value: %v\n", Str, Str)
-	fmt.Printf("Type: %T Value: %v\n", MaxInt, MaxInt)
-	fmt.Printf("Type: %T Value: %v\n", Flt, Flt)
-	fmt.Printf("Type: %T Value: %v\n", z, z)
+	fmt.Printf("Type: %T, Value: %v, Sizeof: %v\n", ToBe, ToBe, unsafe.Sizeof(ToBe))
+	fmt.Printf("Type: %T, Value: %v, Sizeof: %v\n", Str, Str, unsafe.Sizeof(Str))
+	fmt.Printf("Type: %T, Value: %v, Sizeof: %v\n", MaxInt, MaxInt, unsafe.Sizeof(MaxInt))
+	fmt.Printf("Type: %T, Value: %v, Sizeof: %v\n", Flt, Flt, unsafe.Sizeof(Flt))
+	fmt.Printf("Type: %T, Value: %v, Sizeof: %v\n", z, z, unsafe.Sizeof(z))
+	fmt.Printf("Type: %T, Value: %v, Sizeof: %v\n", ptr, ptr, unsafe.Sizeof(ptr))
 }
 
 func type_conversion() {
@@ -166,7 +169,7 @@ func type_conversion() {
 	var f float32 = float32(i)
 	u := uint(f)
 
-	fmt.Println(i, f, u)
+	fmt.Printf("%T: %v\n%T: %v\n%T: %v\n", i, i, f, f, u, u)
 }
 
 func for_loop() {
