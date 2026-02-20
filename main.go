@@ -138,6 +138,11 @@ func main() {
 
 	fmt.Print("=========================================\n\n")
 	runtime_mod()
+
+	fmt.Print("=========================================\n\n")
+	x := "foo"
+	x += "bar"
+	fmt.Printf("string concatenation: %v\n", x)
 }
 
 func basic_types() {
