@@ -154,6 +154,8 @@ func basic_types() {
 		Flt    float64    = 3.14
 		z      complex128 = cmplx.Sqrt(-5 + 12i)
 		ptr    uintptr    = 0xFF_FF_FF_FF_FF_FF_FF_FF
+		rawStr            = `qaz \t baz \n`
+		rune_  rune       = 'A'
 	)
 
 	fmt.Printf("Type: %T, Value: %v, Sizeof: %v\n", ToBe, ToBe, unsafe.Sizeof(ToBe))
@@ -162,6 +164,9 @@ func basic_types() {
 	fmt.Printf("Type: %T, Value: %v, Sizeof: %v\n", Flt, Flt, unsafe.Sizeof(Flt))
 	fmt.Printf("Type: %T, Value: %v, Sizeof: %v\n", z, z, unsafe.Sizeof(z))
 	fmt.Printf("Type: %T, Value: %v, Sizeof: %v\n", ptr, ptr, unsafe.Sizeof(ptr))
+	fmt.Printf("Type: %T, Value: %v, Sizeof: %v\n", ptr, ptr, unsafe.Sizeof(ptr))
+	fmt.Printf("Type: %T, Value: %v, Sizeof: %v\n", rawStr, rawStr, unsafe.Sizeof(rawStr))
+	fmt.Printf("Type: %T, Value: %v, Sizeof: %v\n", rune_, rune_, unsafe.Sizeof(rune_))
 }
 
 func type_conversion() {
