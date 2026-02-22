@@ -144,6 +144,12 @@ func main() {
 	x := "foo"
 	x += "bar"
 	fmt.Printf("string concatenation: %v\n", x)
+
+	fmt.Print("=========================================\n\n")
+	structs_()
+
+	fmt.Print("=========================================\n\n")
+	functions()
 }
 
 func basic_types() {
